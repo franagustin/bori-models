@@ -5,6 +5,11 @@ from schematics.models import Model
 class MongoModel(Model):
     _id = types.BaseType(serialize_when_none=False)
 
+    def to_snake_case(self):
+        return ''.join([
+            f"{'_'+i.lower() if i.isupper() else i}"
+            for i in self.__class__.__name__
+        ]).lstrip('_')
 
 class GuildSettings(MongoModel):
     guild_id = types.IntType(required=True)
