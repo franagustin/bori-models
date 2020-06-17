@@ -17,6 +17,7 @@ class GuildSettings(MongoModel):
     disabled_cogs = types.ListType(types.StringType)
     disabled_commands = types.ListType(types.StringType)
     muted_role = types.IntType()
+    prefixes = types.ListType(types.StringType)
 
 
 class MutedMember(MongoModel):
