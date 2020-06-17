@@ -11,10 +11,12 @@ class MongoModel(Model):
             for i in self.__class__.__name__
         ]).lstrip('_')
 
+
 class GuildSettings(MongoModel):
     guild_id = types.IntType(required=True)
     disabled_cogs = types.ListType(types.StringType)
     disabled_commands = types.ListType(types.StringType)
+    muted_role = types.IntType()
 
 
 class MutedMember(MongoModel):
